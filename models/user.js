@@ -1,17 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const { isEmail } = require('validator');
-// const { validURL } = require('../utils/validURL');
 const UnauthorizedError = require('../errors/UnauthorizedError');
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    minlength: 2,
-    maxlength: 30,
-    required: true,
-
-  },
   email: {
     type: String,
     required: true,
@@ -25,6 +17,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     select: false,
+  },
+  name: {
+    type: String,
+    minlength: 2,
+    maxlength: 30,
+    required: true,
   },
 });
 
