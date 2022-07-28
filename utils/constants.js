@@ -15,4 +15,9 @@ const mongoAdress = 'mongodb://localhost:27017/moviesdb';
 // ---Секретный ключ
 const secretKey = 'dev-secret';
 
-module.exports = { regex, allowedCors, mongoAdress, secretKey };
+module.exports = {
+  regex,
+  allowedCors,
+  mongoAdress,
+  secretKey,
+};

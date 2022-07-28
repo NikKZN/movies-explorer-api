@@ -10,7 +10,7 @@ const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/index');
 const errHandler = require('./middlewares/errHandler');
-const mongoAdress = require('./utils/constants');
+const { mongoAdress } = require('./utils/constants');
 const limiter = require('./middlewares/rateLimiter');
 
 const { PORT = 3000 } = process.env;
