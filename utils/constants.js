@@ -3,10 +3,16 @@ const regex = /^https?:\/\/(www\.)?[a-zA-Z\d-]+\.[\w\d\-._~:/?#[\]@!$&'()*+,;=]{
 
 // ---Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
-  'https://',
-  'http://',
+  'https://filmoteka.nkzn.nomoredomains.xyz',
+  'http://filmoteka.nkzn.nomoredomains.xyz',
   'localhost:3000',
   'http://localhost:3000',
 ];
 
-module.exports = { regex, allowedCors };
+// ---Адрес Mongo-сервера
+const mongoAdress = 'mongodb://localhost:27017/moviesdb';
+
+// ---Секретный ключ
+const secretKey = 'dev-secret';
+
+module.exports = { regex, allowedCors, mongoAdress, secretKey };
