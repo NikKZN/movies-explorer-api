@@ -13,13 +13,14 @@ const errHandler = require('./middlewares/errHandler');
 const { mongoAdress } = require('./utils/constants');
 const limiter = require('./middlewares/rateLimiter');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, NODE_ENV, MONGO_ADRESS } = process.env;
 
 const app = express();
 
-mongoose.connect(mongoAdress, {
-  useNewUrlParser: true,
-});
+mongoose.connect(
+  NODE_ENV === 'production' ? MONGO_ADRESS : mongoAdress,
+  { useNewUrlParser: true },
+);
 
 // app.use(cors);
 app.use(helmet());

@@ -10,7 +10,7 @@ const allowedCors = [
 ];
 
 // ---Адрес Mongo-сервера
-const mongoAdress = 'mongodb://localhost:27017/moviesdb';
+const mongoAdress = 'mongodb://localhost:27017/filmsdb';
 
 // ---Секретный ключ
 const secretKey = 'dev-secret';
