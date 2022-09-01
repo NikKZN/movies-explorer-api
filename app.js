@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
-// const cors = require('./middlewares/cors');
+const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/index');
 const errHandler = require('./middlewares/errHandler');
@@ -22,9 +22,9 @@ mongoose.connect(
   { useNewUrlParser: true },
 );
 
+app.use(cors);
 app.use(requestLogger);
 app.use(limiter);
-// app.use(cors);
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
