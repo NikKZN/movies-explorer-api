@@ -26,9 +26,9 @@ module.exports.updateProfile = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError' || err.name === 'ValidationError') {
-        next(new BadRequestError('Переданы некорректные данные при обновлении профиля!'));
+        next(new BadRequestError('При обновлении профиля произошла ошибка.'));
       } else if (err.code === 11000) {
-        next(new ConflictError('Данный Email уже зарегистрирован!'));
+        next(new ConflictError('Пользователь с таким email уже существует.'));
       } else {
         next(err);
       }
@@ -59,7 +59,7 @@ module.exports.createUser = (req, res, next) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при создании пользователя!'));
       } else if (err.code === 11000) {
-        next(new ConflictError('Данный Email уже зарегистрирован!'));
+        next(new ConflictError('Пользователь с таким email уже существует.'));
       } else {
         next(err);
       }
@@ -79,7 +79,7 @@ module.exports.login = (req, res, next) => {
       res
         .cookie('token', token, {
           httpOnly: true,
-          maxAge: 3600000,
+          maxAge: 18000000,
           sameSite: true,
         })
         .send({ token });
